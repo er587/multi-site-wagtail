@@ -100,10 +100,16 @@ class SiteBranding(BaseSetting):
         max_length=6,
         null=True,
         blank=True,
-        help_text="Fill in a hex colour value"
+        help_text="Fill in a hex color value"
+    )
+    template = models.CharField(
+        max_length=255,
+        blank=True,
+        help_text="Specify the template path"
     )
 
     panels = [
-        ImageChooserPanel('site_logo'),
+        FieldPanel('site_logo'),
         FieldPanel('banner_colour'),
+        FieldPanel('template'),
     ]
